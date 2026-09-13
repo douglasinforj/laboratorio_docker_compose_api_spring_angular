@@ -1,15 +1,38 @@
-# Docker
-*.env
+# ── Ambiente ────────────────────────────────────────────────
+.env
 .env.*
+!.env.example
 
-# Postgres
+# ── Docker ──────────────────────────────────────────────────
 postgres/data/
 
-# OS
+# ── Java / Maven ────────────────────────────────────────────
+backend/target/
+backend/.mvn/
+!backend/.mvn/wrapper/maven-wrapper.jar
+backend/mvnw
+backend/mvnw.cmd
+*.class
+*.jar
+*.war
+
+# ── Angular / Node ──────────────────────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.env
+
+# ── OS ──────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# IDE
+# ── IDE ─────────────────────────────────────────────────────
 .idea/
 .vscode/
 *.iml
+*.suo
+*.user
+.classpath
+.project
+.settings/
