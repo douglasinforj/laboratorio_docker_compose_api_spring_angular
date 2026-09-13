@@ -7,6 +7,7 @@ Frontend - Angular 17 + Nginx
 Orquestração - Docker Compose
 
 ## Estrutura do Projeto
+```
 lab-docker/
 ├── docker-compose.yml      # Orquestração de todos os serviços
 ├── postgres/
@@ -17,3 +18,4 @@ lab-docker/
 └── frontend/               # SPA de cadastro de usuários (Angular)
 ├── Dockerfile
 └── src/
+```
