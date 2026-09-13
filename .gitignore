@@ -1,0 +1,15 @@
+# Docker
+*.env
+.env.*
+
+# Postgres
+postgres/data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.iml
