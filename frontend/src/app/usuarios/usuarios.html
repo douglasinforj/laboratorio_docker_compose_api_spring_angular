@@ -1,0 +1,60 @@
+<div class="container">
+  <h1>👤 Cadastro de Usuários</h1>
+
+  <!-- Formulário -->
+  <div class="card">
+    <h2>{{ editando() ? 'Editar' : 'Novo' }} Usuário</h2>
+    <div class="form-group">
+      <input [(ngModel)]="form.nome"     placeholder="Nome *" />
+      <input [(ngModel)]="form.email"    placeholder="E-mail *" type="email" />
+      <input [(ngModel)]="form.telefone" placeholder="Telefone" />
+    </div>
+    <div class="actions">
+      <button class="btn-primary" (click)="salvar()">
+        {{ editando() ? '💾 Atualizar' : '➕ Cadastrar' }}
+      </button>
+      <button class="btn-secondary" *ngIf="editando()" (click)="cancelar()">
+        ✖ Cancelar
+      </button>
+    </div>
+  </div>
+
+  <!-- Mensagem de feedback -->
+  @if (mensagem()) {
+    <p class="msg">{{ mensagem() }}</p>
+  }
+
+  <!-- Tabela -->
+  <div class="card">
+    <h2>Usuários cadastrados</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Telefone</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (u of usuarios(); track u.id) {
+          <tr>
+            <td>{{ u.id }}</td>
+            <td>{{ u.nome }}</td>
+            <td>{{ u.email }}</td>
+            <td>{{ u.telefone || '—' }}</td>
+            <td>
+              <button class="btn-edit"   (click)="editar(u)">✏️</button>
+              <button class="btn-delete" (click)="deletar(u.id!)">🗑️</button>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5" class="empty">Nenhum usuário cadastrado.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
